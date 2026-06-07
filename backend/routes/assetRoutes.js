@@ -28,7 +28,7 @@ router.post('/create', async (req, res) => {
         const uniqueId = uuidv4().split('-')[0];
         
         // Ngrok tunnel or production environment domain configuration
-        const backendUrl = 'https://tagtrace-backend.vercel.app'; 
+        const backendUrl = 'https://tagtrace-backend.vercel.app/'; 
         const trackingUrl = `${backendUrl}/api/assets/track/${uniqueId}`;
 
         // Generate QR code base64 string
