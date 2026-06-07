@@ -18,7 +18,7 @@ function App() {
   const [ownerEmail, setOwnerEmail] = useState('');
   const [selectedAsset, setSelectedAsset] = useState(null);
 
-  const BACKEND_URL = 'http://localhost:5000/api/assets';
+  const BACKEND_URL = `${import.meta.env.VITE_API_URL}/api/assets`;
 
   // FIXED: Memoized fetch handler to satisfy ESLint hook dependencies safely
   const fetchAssets = useCallback(async () => {
