@@ -144,6 +144,37 @@ function App() {
                 </div>
               )}
             </div>
+            
+            {/* Large QR Preview Card */}
+            {selectedAsset && selectedAsset.qrCodeImage && (
+              <div className="bg-gray-800 p-5 rounded-2xl border border-gray-700 shadow-xl flex flex-col items-center justify-center text-center animate-fade-in">
+                <h2 className="text-lg font-bold mb-1 text-gray-200">🖨️ Print Tracking Tag</h2>
+                <p className="text-xs text-gray-400 mb-4">Selected Item: <span className="text-blue-400 font-semibold">{selectedAsset.assetName}</span></p>
+    
+                {/* QR එක ලොකුවට පෙන්වන තැන */}
+                <div className="bg-white p-4 rounded-2xl shadow-2xl inline-block border-4 border-blue-500/20">
+                  <img 
+                    src={selectedAsset.qrCodeImage} 
+                    alt="Large Tracking QR Code" 
+                    className="w-48 h-48 md:w-56 md:h-56 object-contain"
+                  />
+                </div>
+    
+                <p className="text-xs text-gray-450 mt-4 text-gray-400">
+                  Scan this code with your mobile camera to test the live GPS tracking trigger.
+                </p>
+    
+                {/* QR එක Download කරගන්න බටන් එකක් */}
+                <a 
+                  href={selectedAsset.qrCodeImage} 
+                  download={`TagTrace-${selectedAsset.assetName}.png`}
+                  className="mt-4 w-full bg-gray-700 hover:bg-gray-650 text-white font-medium py-2 rounded-xl text-xs transition border border-gray-600 text-center"
+                >
+                  💾 Download QR Image
+                </a>
+              </div>
+            )}
+
           </div>
 
           {/* Map */}
