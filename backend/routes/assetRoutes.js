@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { v4: uuidv4 } = require('uuid'); 
+const crypto = require('crypto');
+const uuidv4 = () => crypto.randomUUID();
 const QRCode = require('qrcode'); 
 const Asset = require('../models/Asset'); // Your Mongoose Schema Model
 
